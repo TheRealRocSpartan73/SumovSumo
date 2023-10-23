@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         //Create enemies based on wave variable
-        SpawnEnemyWave();
+        SpawnEnemyWave(3);
 
 
     }
@@ -21,9 +21,9 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    void SpawnEnemyWave()
+    void SpawnEnemyWave(int enemiesToSpawn)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             //Create enemy sphere.
             Instantiate(enemyPrefab, this.GenerateSpawnPosition(), enemyPrefab.transform.rotation);
