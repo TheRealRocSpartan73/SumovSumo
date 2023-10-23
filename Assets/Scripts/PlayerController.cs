@@ -31,8 +31,18 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Powerup"))
         {
             hasPowerup = true;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject);//Remove the powerup
+
+            //Start a timer that will wait for 7 seconds, then reset the powerup boolean
+            StartCoroutine(PowerupCountdownRoutine());
         }
+    }
+
+    //Creates a new 7 second timer outside of the main update loop
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(7);
+        hasPowerup = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,4 +57,4 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Collided with: " + collision.gameObject.name + " with powerup set to " + hasPowerup);
         }
     }
-}
+} 
