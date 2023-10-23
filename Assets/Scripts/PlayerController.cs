@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playerRB;
+    
     public float speed = 3.0f;
+    public bool hasPowerup = false; //No powerup at start
+
     private GameObject focalPoint;
+    private Rigidbody playerRB;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +22,15 @@ public class PlayerController : MonoBehaviour
     {
         float forwardInput = Input.GetAxis("Vertical");
         playerRB.AddForce(focalPoint.transform.forward * forwardInput * speed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //If player collides with powerup, destroy the powerup object
+        if (other.CompareTag("Powerup"))
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+        }
     }
 }
