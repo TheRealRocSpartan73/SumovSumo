@@ -6,14 +6,15 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public int enemyCount;
+    public int waveNumber = 1; //Track number of waves
+
     private float spawnRange = 9.0f; //Range from origin for randoms
 
     // Start is called before the first frame update
     void Start()
     {
-        //Create enemies based on wave variable
-        SpawnEnemyWave(3);
-
+        //Create enemies based on waveNumber variable
+        SpawnEnemyWave(waveNumber);
 
     }
 
@@ -24,7 +25,8 @@ public class SpawnManager : MonoBehaviour
         enemyCount = FindObjectsOfType<Enemy>().Length;
         if(enemyCount == 0) //All Enemies have gone
         {
-            SpawnEnemyWave(3);  //Spawn some more
+            waveNumber++; //Move to the next wave
+            SpawnEnemyWave(waveNumber);  //Spawn some more bad guys based on wave
         }
     }
 

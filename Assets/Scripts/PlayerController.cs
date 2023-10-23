@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     
-    public float speed = 3.0f;
+    public float speed = 1.5f;
     public bool hasPowerup = false; //No powerup at start
     public GameObject powerupIndicator;
 
     private GameObject focalPoint;
     private Rigidbody playerRB;
-    private float powerUpStrength = 15.0f;
+    private float powerUpStrength = 25.0f;
     // Start is called before the first frame update
     void Start()
     {
