@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598ece382ec3f614382cdc95199a87ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   hasPowerup: 0
   powerupIndicator: {fileID: 1555882421}
 --- !u!1001 &245963551
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7e30e5d2d92db44afac77b5db7088c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
+  rotationSpeed: 80
 --- !u!4 &1681985581
 Transform:
   m_ObjectHideFlags: 0
