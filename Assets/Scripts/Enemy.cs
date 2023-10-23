@@ -17,8 +17,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move the enemy towards the player. Once the direction is calculated, normalise the vector
-        //so that the Vector does not increase due to distance from enemy.
-        enemyRB.AddForce((thePlayer.transform.position - this.transform.position).normalized * speed);
+        //Calculate the vector between enemy and player position
+        //Normalise it so the enemy does not move faster if distance increases
+        Vector3 lookDirection = (thePlayer.transform.position - this.transform.position).normalized;
+        
+        //Move the enemy towards the player.
+        enemyRB.AddForce(lookDirection * speed);
     }
 }
