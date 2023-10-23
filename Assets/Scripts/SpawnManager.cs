@@ -5,8 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject powerupPrefab;
     public int enemyCount;
     public int waveNumber = 1; //Track number of waves
+    
 
     private float spawnRange = 9.0f; //Range from origin for randoms
 
@@ -15,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     {
         //Create enemies based on waveNumber variable
         SpawnEnemyWave(waveNumber);
+        //Create an initial powerup
+        SpawnPowerUp();
 
     }
 
@@ -27,6 +31,8 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++; //Move to the next wave
             SpawnEnemyWave(waveNumber);  //Spawn some more bad guys based on wave
+            //Create an new powerup
+            SpawnPowerUp();
         }
     }
 
@@ -38,6 +44,12 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemyPrefab, this.GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
     }
+
+    void SpawnPowerUp()
+    {
+        Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+    }
+
 
     private Vector3 GenerateSpawnPosition()
     {
