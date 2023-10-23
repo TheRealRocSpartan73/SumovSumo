@@ -23,5 +23,10 @@ public class Enemy : MonoBehaviour
         
         //Move the enemy towards the player.
         enemyRB.AddForce(lookDirection * speed);
+
+        if(transform.position.y < -10)  //Enemy has fallen off 
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
